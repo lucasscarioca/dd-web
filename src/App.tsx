@@ -1,10 +1,14 @@
-import { Button } from "./components/ui/button";
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Home } from './pages/Home'
 
 export default function App() {
-  return (
-    <div className="h-screen w-screen bg-slate-500 grid place-content-center">
-      <span className="text-slate-100 font-bold">Dino Diary</span>
-      <Button>Test</Button>
-    </div>
-  )
+	return (
+		<div className='h-screen w-screen bg-background text-foreground grid place-content-center'>
+			<BrowserRouter>
+				<Routes>
+					<Route index path='/' element={<Home />} />
+				</Routes>
+			</BrowserRouter>
+		</div>
+	)
 }
