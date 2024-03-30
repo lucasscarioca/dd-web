@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		--background: 194 0% 100%;
+		--foreground: 194 0% 10%;
+		--card: 194 0% 100%;
+		--card-foreground: 194 0% 15%;
+		--popover: 194 0% 100%;
+		--popover-foreground: 194 95% 10%;
+		--primary: 194 58.3% 27.3%;
+		--primary-foreground: 0 0% 100%;
+		--secondary: 194 10% 90%;
+		--secondary-foreground: 0 0% 0%;
+		--muted: 156 10% 95%;
+		--muted-foreground: 194 0% 40%;
+		--accent: 156 10% 90%;
+		--accent-foreground: 194 0% 15%;
+		--destructive: 0 50% 50%;
+		--destructive-foreground: 194 0% 100%;
+		--border: 194 20% 82%;
+		--input: 194 20% 50%;
+		--ring: 194 58.3% 27.3%;
+		--radius: 1rem;
+	}
+	.dark {
+		--background: 194 10% 10%;
+		--foreground: 194 0% 100%;
+		--card: 194 0% 10%;
+		--card-foreground: 194 0% 100%;
+		--popover: 194 10% 5%;
+		--popover-foreground: 194 0% 100%;
+		--primary: 194 58.3% 27.3%;
+		--primary-foreground: 0 0% 100%;
+		--secondary: 194 10% 20%;
+		--secondary-foreground: 0 0% 100%;
+		--muted: 156 10% 25%;
+		--muted-foreground: 194 0% 65%;
+		--accent: 156 10% 25%;
+		--accent-foreground: 194 0% 95%;
+		--destructive: 0 50% 50%;
+		--destructive-foreground: 194 0% 100%;
+		--border: 194 20% 50%;
+		--input: 194 20% 50%;
+		--ring: 194 58.3% 27.3%;
+		--radius: 1rem;
+	}
+}
+
+@layer base {
+	* {
+		@apply border-border;
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
+	body {
+		font-family: 'Montserrat', sans-serif;
+	}
+}

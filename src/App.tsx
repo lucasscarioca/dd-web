@@ -1,14 +1,30 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Home } from './pages/Home'
+import { User, onAuthStateChanged } from 'firebase/auth'
+import { auth } from '@/lib/firebase'
+import { useEffect, useState } from 'react'
+import { Router } from './Router'
+import { Layout } from './Layout'
+import { Loading } from './components/Loading'
 
 export default function App() {
+	const [user, setUser] = useState<User>()
+	const [isFetching, setIsFetching] = useState(true)
+	useEffect(() => {
+		const unsubscribe = onAuthStateChanged(auth, user => {
+			setUser(user ?? undefined)
+			setIsFetching(false)
+		})
+		return () => unsubscribe()
+	}, [])
+
 	return (
-		<div className='h-screen w-screen bg-background text-foreground grid place-content-center'>
-			<BrowserRouter>
-				<Routes>
-					<Route index path='/' element={<Home />} />
-				</Routes>
-			</BrowserRouter>
-		</div>
+		<Layout>
+			{isFetching ? (
+				<Layout>
+					<Loading />
+				</Layout>
+			) : (
+				<Router user={user} />
+			)}
+		</Layout>
 	)
 }
